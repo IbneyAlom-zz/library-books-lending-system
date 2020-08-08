@@ -1,0 +1,58 @@
+<div>
+  <span style="font-size: 20px">Show Available books &nbsp;</span>
+  <label class="switch">
+    <input type="checkbox"
+    (change)="onChange($event.target.checked)" >
+    <span class="slider round"></span>
+  </label>
+
+</div>
+<div class="grid-container">
+  <div class="item1">
+    <div class="book_block" *ngFor="let book of bookList">
+      <img [attr.src]="book.thumbnailUrl">
+    <div>
+     <h3> {{book.title}} </h3>
+     <p> Author: <span *ngFor="let author of book.authors; let isLast=last">
+       {{author}} {{isLast ? ' ' : ', '}}
+     </span></p>
+     <div *ngIf="book.isAvailable == 'N'">
+       <div class="text-danger" style="font-size: 20px; font-weight: bold;">
+         Currently Unavailable
+       </div>
+     </div>
+     <div *ngIf="book.isAvailable == 'Y'" style="margin-top: 40px;">
+      <div>
+       <button class="btn" (click)="lendingModal()">Rent</button> &nbsp;
+       <button class="btn" (click)="addToCart(book.title)">Add to Cart</button>
+      </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="item2">
+    <div class="sticky_block">
+    <div class="crad-header">
+      Cart
+    </div>
+    <div class="card-body">
+     <app-cart [addedBook]="addedBook" (removedBook)="removedBook($event)" (userForm)="openFromCart($event)"></app-cart>
+    </div>
+  </div>
+  </div>
+</div>
+
+<ng-container *ngIf="showPopup">
+  <div class="greyModal modalToggle">
+  </div>
+  <div class="modalContent modalToggle">
+    <div class="modal-header">
+      User Details
+      <span (click)="closeModal()"> Close</span>
+    </div>
+    <div class="modal-body">
+      <app-user-details (emptyCart)="emptyCart($event)"></app-user-details>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,27 @@
+<header>
+  <div class="container">
+    <h1>Library Books Lending System</h1>
+  </div>
+</header>
+
+
+<main class="container">
+  <h3 style="text-align: center;">
+  Want to Return Book? &nbsp;&nbsp;<a href="javascript:void(0)" (click)="openModal()">Click Here..</a>
+  </h3>
+ <app-book-list></app-book-list>
+</main>
+
+<ng-container *ngIf="showPopup">
+  <div class="greyModal modalToggle">
+  </div>
+  <div class="modalContent modalToggle">
+    <div class="modal-header">
+      User Details
+      <span (click)="closeModal()"> Close</span>
+    </div>
+    <div class="modal-body">
+      <app-return-book></app-return-book>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,55 @@
+<form *ngIf = "!showMsg" [formGroup]="userForm" (ngSubmit)="onUserSubmit()">
+  <div class="form-group">
+    <label for="username">Username <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" id="username"
+      formControlName="username" aria-describedby="username" placeholder="Username">
+    <div *ngIf="submitted && f.username.errors" class="form-control invalid-feedback">
+      <div *ngIf="f.username.errors.required" class="text-danger">Username is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="membershipNo">Membership No: <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.membershipNo.errors }"
+      id="membershipNo" formControlName="membershipNo" aria-describedby="membershipNo" placeholder="Membership No.">
+    <div *ngIf="submitted && f.membershipNo.errors" class="form-control invalid-feedback">
+      <div *ngIf="f.membershipNo.errors.required" class="text-danger">Membership No is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="duration">Duration: <span class="text-danger">*</span>
+    <small>(Max 30 days)</small>
+    </label>
+    <select id="duration" class="form-control select_input" formControlName ='duration' 
+            (change)="changeDate($event)"
+            [ngClass]="{ 'is-invalid': submitted && f.duration.errors }">
+      <option value="" disabled selected>Choose Duration</option>
+      <option *ngFor="let num of numbers; let isFirst=first" [value]="num">{{num}} {{isFirst ? 'day' : 'days'}}</option>
+
+    </select>
+    <div *ngIf="submitted && f.duration.errors" class="form-control invalid-feedback">
+      <div *ngIf="f.duration.errors.required" class="text-danger">Duration is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Return Date: </label>
+    <input
+    type="text"
+    disabled
+    class="form-control" 
+    [attr.value]="returnDate? returnDate : 'dd-mm-yyyy'">
+  </div>
+
+  <div class="form-group" style="margin: 30px 0px; text-align: center;">
+    <button class="btn" style="width: 40%;">
+      <span>Submit</span>
+    </button>
+  </div>
+
+  </form>
+
+  <div *ngIf = "showMsg">
+    <h5 style="text-align: center; margin: 30px;">
+      Successfully submitted
+    </h5>
+  </div>

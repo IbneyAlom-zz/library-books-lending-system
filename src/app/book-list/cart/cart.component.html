@@ -1,0 +1,15 @@
+<div *ngIf="addedBook.length>0">
+    <h4>Added book:</h4>
+  <ol>
+    <li *ngFor="let book of addedBook">
+      {{book}} &nbsp; &nbsp;<a href="javascript:void(0)" class="text-danger"
+        (click)="removedBookFromCart(book)">Remove</a>
+    </li>
+</ol>
+</div>
+<div *ngIf="addedBook.length==0" style="text-align: center; margin: 30px 0px;">
+<h4>No books in the Cart</h4>
+</div>
+<div *ngIf="addedBook.length>0" style="text-align: center; margin-top: 30px;">
+    <button class="btn" (click)="openModal()">Rent Out</button>
+</div>

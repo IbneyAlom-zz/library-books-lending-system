@@ -1,0 +1,39 @@
+@import "../../assets/scss/main";
+
+.grid-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  // display: grid;
+  // grid-template-columns: auto auto auto auto;
+  // grid-gap: 30px;
+  .item1 {
+    // float: left;
+    // grid-column: 1 / 4;
+    width: 60%;
+
+    .book_block {
+      margin-bottom: 20px;
+      border: 1px solid lightgray;
+      padding: 20px;
+      min-height: 160px;
+
+      img {
+        height: 160px;
+        float: left;
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .item2 {
+    width: 35%;
+    // float: right;
+
+    .sticky_block {
+      position: sticky;
+      top: 50px;
+    }
+  }
+}
