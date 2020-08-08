@@ -31,7 +31,6 @@ export class ReturnBookComponent implements OnInit {
       return;
     } else {
       this.showMsg = true;
-      this.emptyCart.emit(true)
     }
   }
 

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ReturnBookComponent } from './return-book.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 describe('ReturnBookComponent', () => {
   let component: ReturnBookComponent;
@@ -8,7 +9,8 @@ describe('ReturnBookComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReturnBookComponent ]
+      declarations: [ ReturnBookComponent ],
+      imports: [FormsModule, ReactiveFormsModule]
     })
     .compileComponents();
   }));
