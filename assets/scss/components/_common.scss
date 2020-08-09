@@ -1,0 +1,49 @@
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1170px;;
+}
+
+@include respond-to(sm) {
+  .container {
+    width: 750px;
+  }
+}
+
+@include respond-to(md) {
+  .container {
+    width: 970px;
+  }
+}
+
+@include respond-to(lg) {
+  .container {
+    width: 1170px;
+  }
+}
+.card-body{
+    border: 1px solid lightgray;
+    padding: 20px;
+}
+.text-danger{
+  color: #dc3545;
+}
+.btn{
+  background-color: $card-bg;
+  color: $primary-text-color;
+  padding: 10px 20px;
+  cursor: pointer;
+  &:hover{
+    background-color: black;
+  }
+}
+
+.crad-header{
+  background-color: $card-bg;
+  color: $primary-text-color;
+  font-size: 30px;
+  padding: 10px;
+  text-align: center;
+}
