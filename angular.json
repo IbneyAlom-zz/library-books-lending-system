@@ -122,8 +122,13 @@
               "devServerTarget": "library-books-landing-system:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "library-books-landing-system"
 }
